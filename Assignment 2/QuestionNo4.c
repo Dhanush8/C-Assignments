@@ -1,26 +1,77 @@
 #include<stdio.h>
-#include<math.h>
 
 void main(){
 
-	int year,days,x,y,z;
+	int year,days,leap=0,notLeap=0,x,y,i;
 	printf("Enter the Year: ");
 	scanf("%d",&year);
 	x=year-2001;
-	y=sqrt(pow(x,2));	
-	
+
 	if(x>=0)
 	{
-		days=366*(y/4)+365*(y-(y/4));
-		z=days%7;
-	}
-	else
-	{
-		days=366*((y/4)+1)+365*(y-((y/4)+1));
-		z=7-days%7;
+		for(i=2001;i<year;i++)
+		{
+			if(i%4==0)
+			{
+				if(i%100==0)
+				{
+					if(i%400==0)
+					{
+						leap+=1;
+					}
+					else
+					{
+						notLeap+=1;
+					}
+				}
+				else
+				{
+					leap+=1;
+				}
+			}
+			else
+			{
+				notLeap+=1;
+			}
+		}
+
+		days=(366*leap)+(365*notLeap);
+		y=days%7;
 	}
 
-		switch(z)
+	else
+	{	
+		for(i=2000;i>=year;i--)
+		{
+			if(i%4==0)
+			{
+				if(i%100==0)
+				{
+					if(i%400==0)
+					{
+						leap+=1;
+					}
+					else
+					{
+						notLeap+=1;
+					}
+				}
+				else
+				{
+					leap+=1;
+				}
+			}
+			else
+			{
+				notLeap+=1;
+			}
+		}
+		
+		days=(366*leap)+(365*notLeap);
+		y=7-(days%7);
+	}
+
+		switch(y)
 		{
 			case 0:
 				printf("The Day on 1st January: Monday");
