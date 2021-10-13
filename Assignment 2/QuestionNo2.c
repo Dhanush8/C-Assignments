@@ -15,16 +15,16 @@ void main(){
 switch(operator){
 
 	case '+':
-		printf("%f+%f=%f\n",num1,num2,num1+num2);
+		printf("(%f) + (%f) = %f\n",num1,num2,num1+num2);
 		break;
 	case '-':
-		printf("%f-%f=%f\n",num1,num2,num1-num2);
+		printf("(%f) - (%f) = %f\n",num1,num2,num1-num2);
 		break;
 	case '*':
-		printf("%f*%f=%f\n",num1,num2,num1*num2);
+		printf("(%f) * (%f) = %f\n",num1,num2,num1*num2);
 		break;
 	case '/':
-		printf("%f/%f=%f\n",num1,num2,num1/num2);
+		printf("(%f) / (%f) = %f\n",num1,num2,num1/num2);
 		break;
 	default:
 		printf("Plese Enter a Correct Operator(+ , - , * , /) and Try Again!\n");
